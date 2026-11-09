@@ -7,32 +7,34 @@ const mail =
 
 const header = `
 <header class="site-header">
-  <a class="brand" href="${ROOT}index.html" aria-label="Ir al inicio"><img src="${ROOT}imagenes/Logo.png" alt=""><b>Multiverso<br>Studios</b></a>
+  <a class="brand" href="${ROOT}index.html" aria-label="Ir al inicio"><img src="${ROOT}imagenes/logo.png" alt=""><b>Multiverso<br>Studios</b></a>
   <button class="menu" aria-label="Abrir menú" aria-expanded="false"><i></i><i></i></button>
   <nav>
-    <a href="${ROOT}acerca.html">Acerca de</a>
     <a href="${ROOT}minecraft.html">Minecraft</a>
-    <a href="${ROOT}esports.html">Vyzen</a>
-    <a href="${ROOT}colaboraciones.html">Colaboraciones</a>
-    <a href="${ROOT}tienda.html">Tienda</a>
+    <a href="${ROOT}colaboradores.html">Colaboradores</a>
     <a href="${ROOT}contacto.html">Contacto</a>
+    <a href="${ROOT}ecosistema.html">Ecosistema</a>
   </nav>
-  <div class="header-actions"><a class="download" href="${ROOT}launcher.html">↓ Descargar cliente</a><a class="social" href="${discord}" target="_blank" rel="noopener" aria-label="Discord">◉</a><a class="social" href="${twitter}" target="_blank" rel="noopener" aria-label="X">𝕏</a></div>
+  <div class="header-actions">
+    <a class="download" href="${ROOT}launcher.html">↓ Descargar cliente</a>
+    <a class="social" href="${discord}" target="_blank" rel="noopener" aria-label="Discord">◉</a>
+    <a class="social" href="${twitter}" target="_blank" rel="noopener" aria-label="X">𝕏</a>
+  </div>
 </header>`;
+
 const footer = `
 <footer>
-  <a class="brand" href="${ROOT}index.html"><img src="${ROOT}imagenes/Logo.png" alt=""><b>Multiverso<br>Studios</b></a>
+  <a class="brand" href="${ROOT}index.html"><img src="${ROOT}imagenes/logo.png" alt=""><b>Multiverso<br>Studios</b></a>
   <div class="footer-columns">
     <div>
       <b>ESTUDIO</b>
       <a href="${ROOT}acerca.html">Acerca de</a>
-      <a href="${ROOT}minecraft.html">Minecraft</a>
-      <a href="${ROOT}colaboraciones.html">Colaboraciones</a>
+      <a href="${ROOT}ecosistema.html">Ecosistema</a>
       <a href="${ROOT}contacto.html">Contacto</a>
     </div>
     <div>
       <b>COMUNIDAD</b>
-      <a href="${discord}" target="_blank" rel="noopener">Discord</a>
+      <a href="${discord}" target="_blank" rel="noopener">Discord Club's</a>
       <a href="${discordBetatest}" target="_blank" rel="noopener">Discord Betatest</a>
       <a href="${twitter}" target="_blank" rel="noopener">X / Twitter</a>
     </div>
@@ -42,17 +44,23 @@ const footer = `
       <a href="${ROOT}terminos.html">Términos y condiciones</a>
     </div>
   </div>
-  <small>© 2026 Multiverso Studios</small>
+  <small>© 2026 Multiverso Studios S.A</small>
 </footer>`;
+
 document.querySelector("#header").innerHTML = header;
 document.querySelector("#footer").innerHTML = footer;
 
+/* ---------- Menú móvil ---------- */
 const menu = document.querySelector(".menu"),
   nav = document.querySelector("nav");
-menu.addEventListener("click", () => {
-  const open = nav.classList.toggle("open");
-  menu.setAttribute("aria-expanded", open);
-});
+if (menu && nav) {
+  menu.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    menu.setAttribute("aria-expanded", open);
+  });
+}
+
+/* ---------- Reveal al scroll ---------- */
 const observer = new IntersectionObserver(
   (es) =>
     es.forEach((e) => {
@@ -65,394 +73,193 @@ const observer = new IntersectionObserver(
 );
 document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
+/* ---------- Datos de proyectos ---------- */
 const projects = {
-  talent: {
-    title: "Discord Talent",
-    meta: "Junio 2023 · 20 participantes",
-    text: "Discord Talent fue el primer evento con el nombre de Multiverso Studios minutos después de crear el nombre del estudio. Tuvo lugar en Junio 2023 con 20 participantes.",
+  "nexus-cup-iii": {
+    title: "Nexus Cup III",
+    meta: "10 nov 2025",
+    image: "imagenes/nexus-cup-iii.png",
+    text: "Nexus Cup III, anteriormente conocido como Multiversal Games, fue la tercera edición del evento de Minecraft organizado por Multiverso Studios. Manteniendo la inspiración en Squid Craft Games, también conocido como Survival Cup, esta entrega reunió a 37 participantes que se enfrentaron durante seis días en un total de doce minijuegos, llevando la competencia a una nueva escala respecto a las ediciones anteriores. A lo largo del evento, los jugadores tuvieron que superar diferentes desafíos y mantenerse en la contienda hasta llegar al desenlace. Finalmente, Smacker se convirtió en el ganador de esta edición y obtuvo un premio de 25 dólares. Nexus Cup III representó un nuevo avance para el proyecto, consolidando su evolución y ampliando la experiencia competitiva que Multiverso Studios buscaba ofrecer a su comunidad.",
   },
-  ksmp1: {
-    title: "KSMP",
-    meta: "Julio 2023 · 20 participantes",
-    text: "La 1er edición de KSMP fue una serie inspirada en TortillaLand y QSMP. Tuvo lugar en Julio 2023 con una duración de 20 días y 20 participantes.",
+  "nexus-cup-ii": {
+    title: "Nexus Cup II",
+    meta: "12 Agosto 2024",
+    image: "imagenes/nexus-cup-ii.png",
+    text: "Nexus Cup II, anteriormente conocido como Squid MC Games, fue la segunda edición del evento de Minecraft organizado por Multiverso Studios y marcó un paso importante en su crecimiento al convertirse en el primer evento realizado en colaboración con otro estudio: Darknes Animation, que con el tiempo se convertiría en uno de nuestros partners. Inspirado en Squid Craft Games, también conocido como Survival Cup, el evento reunió a 27 participantes que compitieron durante cinco días en diez minijuegos, enfrentándose a distintos desafíos para avanzar y mantenerse en la competencia. Al final, ExtraYP se coronó como ganador de esta edición y obtuvo un pase VIP para la siguiente entrega. Nexus Cup II representó una nueva etapa para el proyecto, ampliando la participación y abriendo las puertas a futuras colaboraciones.",
   },
-  dedsafio: {
-    title: "Dedsafío Extremo",
-    meta: "2024 · 17 participantes",
-    text: "Dedsafio Extremo fue una mini serie inspirada en Dedsafio y Minecraft Extremo. Tuvo lugar en 2024 con 17 participantes.",
+  "nexus-cup-i": {
+    title: "Nexus Cup I",
+    meta: "25 Abril 2022",
+    image: "imagenes/nexus-cup-i.png",
+    text: "Nexus Cup I, anteriormente conocido como Squid Games, fue el primer gran evento de Minecraft organizado por Multiverso Studios. Inspirado en Squid Craft Games, también conocido como Survival Cup, el proyecto llevó a 17 participantes a competir durante tres días en una serie de seis minijuegos, poniendo a prueba sus habilidades, estrategia y capacidad para sobrevivir hasta el final. Tras varias rondas de competencia, NotLeox se convirtió en el ganador de esta primera edición, marcando el inicio de una etapa importante para Multiverso Studios y sentando las bases para futuros proyectos y eventos de la comunidad.",
   },
-  multiversal1: {
-    title: "Squid Games",
-    meta: "2021 · 5 participantes",
-    text: "La primera edición de la saga fue una experiencia de tres días inspirada en juegos de supervivencia y eliminación dentro de Minecraft.",
+  deadland: {
+    title: "Deadland",
+    meta: "23 Julio 2026",
+    image: "imagenes/deadland.png",
+    text: "Deadland es una serie de supervivencia en Minecraft desarrollada por Multiverso Studios, centrada en la aventura, la exploración y los desafíos que surgen al intentar sobrevivir en un entorno hostil. A lo largo de la serie, los participantes deben adaptarse a las condiciones del mundo, tomar decisiones estratégicas y afrontar distintas situaciones que ponen a prueba sus habilidades y su capacidad para seguir adelante. La experiencia combina la libertad característica de Minecraft con la emoción de la supervivencia y la interacción entre jugadores, dando lugar a una aventura en la que cada decisión puede influir en el desarrollo de la partida.",
   },
-  multiversal2: {
-    title: "Squid Craft 2",
-    meta: "Agosto 2023 · 17 participantes",
-    text: "La segunda edición fue la primera colaboración con Darkness Animation y tuvo una duración de tres días.",
-  },
-  multiversal3: {
-    title: "Squid MC Games 3",
-    meta: "Noviembre 2023 · 25 participantes",
-    text: "La tercera edición continuó desarrollando la saga con nuevas pruebas y una duración de cuatro días.",
-  },
-  multiversal4: {
-    title: "Squid MC Games 4",
-    meta: "2024 · 25 participantes",
-    text: "La cuarta edición de la saga tuvo una duración de cinco días y reunió nuevamente a la comunidad en diferentes juegos de eliminación.",
-  },
-  multiversal5: {
-    title: "Multiversal Games 5",
-    meta: "Octubre 2025 · 33 participantes",
-    text: "Una competencia de varios días creada junto a estudios y colaboradores invitados. Esta quinta edición renovó la organización, las pruebas y la identidad visual de la saga.",
-  },
-  extremo3: {
-    title: "Extremo 3: Recreación",
-    meta: "Julio 2026 · Supervivencia",
-    text: "Una reinterpretación comunitaria del formato de supervivencia extrema. El evento reunió jugadores durante cuatro días y sirvió para probar nuevas dinámicas de producción.",
-  },
-  ksmp2: {
-    title: "KSMP 2",
-    meta: "2024 · Serie de supervivencia",
-    text: "Segunda temporada de una serie comunitaria de supervivencia. El proyecto se centró en la convivencia, las historias espontáneas y la evolución del servidor.",
-  },
-  terror: {
+  "viernes-terrorifico": {
     title: "Viernes Terrorífico",
-    meta: "Agosto 2026 · Evento original",
-    text: "Mini evento original creado para Reorline y su comunidad, con una atmósfera de misterio, retos temáticos y una experiencia compacta.",
+    meta: "21 Agosto 2026",
+    image: "imagenes/viernes-terrorifico.png",
+    text: "Viernes Terrorífico es un evento original de Multiverso Studios inspirado en experiencias de terror y misterio. Diseñado para ofrecer una atmósfera intensa y momentos de tensión, el evento invita a los participantes a explorar escenarios inquietantes y enfrentarse a situaciones inesperadas. Nació de una colaboración creativa y se consolidó como una de las propuestas temáticas del estudio.",
   },
-  simonDice: {
+  "simon-dice": {
     title: "Simon Dice",
-    meta: "2024 · Evento comunitario",
-    text: "Un evento corto realizado en colaboración con Deluxe Studios, basado en seguir instrucciones y superar diferentes pruebas.",
-  },
-  hardCraft: {
-    title: "Hard Craft",
-    meta: "Abril 2024 · 20 participantes",
-    text: "Una serie de supervivencia de cinco días creada para ofrecer una experiencia más difícil y competitiva a sus participantes.",
+    meta: "07 Marzo 2024",
+    image: "imagenes/simon-dice.png",
+    text: "Simon Dice fue un evento comunitario organizado en colaboración con Deluxe Studios, inspirado en la dinámica del clásico juego del mismo nombre. Durante la actividad, los participantes tuvieron que prestar atención a las instrucciones, reaccionar rápidamente y superar diferentes pruebas para continuar en la competencia. Con una mecánica sencilla, pero centrada en la concentración y la capacidad de respuesta, el evento ofreció una experiencia dinámica pensada para fomentar la participación y la interacción entre los miembros de la comunidad.",
   },
   backrooms: {
     title: "The Backrooms Recreation",
-    meta: "Septiembre 2026 · 10 participantes",
-    text: "Evento organizado por Multiverso Studios y JefferMC. El cual utilizo el mod público y gratuito desarrollado por Eufonia Studio, cuyo equipo merece todos los créditos por su creación. Estas menciones reconocen sus aportaciones y no implican colaboración, patrocinio ni aprobación de nuestro evento.",
+    meta: "14 Septiembre 2026",
+    image: "imagenes/backrooms.png",
+    text: "The Backrooms Recreation fue un evento organizado por Multiverso Studios en conjunto con JefferMC, inspirado en el universo de terror y misterio de The Backrooms. La experiencia reunió a diez participantes en una propuesta basada en la exploración de entornos inquietantes y la atmósfera característica de este concepto. Para llevar a cabo el evento, se utilizó un mod público y gratuito desarrollado por Eufonia Studio, cuyo equipo recibe el reconocimiento correspondiente por su trabajo y contribución a la comunidad de Minecraft.",
   },
-  genesischamp: {
-    title: "Genesis Championship",
-    meta: "Mes Año · ¿? participantes",
-    text: "Torneo En Desarrollo.",
-  },
-  Error404: {
-    title: "Evento Desconocido",
-    meta: "Mes Año · ¿? participantes",
-    text: "Lo sentimos, este apartado fue borrado o esta en desarrollo.",
+  "discord-talent": {
+    title: "Discord Talent",
+    meta: "25 Junio 2023",
+    image: "imagenes/discord-talent.jpg",
+    text: "Discord Talent fue el primer evento realizado bajo el nombre de Multiverso Studios, marcando un momento importante en los inicios del proyecto. En esta edición, diez participantes tuvieron la oportunidad de demostrar sus habilidades y talentos frente a un panel de tres jueces. El evento destacó por llevar la competencia más allá de una actividad privada entre amigos, ya que también fue transmitido en vivo a través del canal de Twitch de ExtraYP. Celebrado en junio de 2023, Discord Talent representó uno de los primeros pasos de Multiverso Studios en la organización de eventos con identidad propia.",
   },
 };
 
-const detail = document.querySelector("#project-detail");
 
-if (detail) {
-  const id = new URLSearchParams(location.search).get("id") || "talent";
-  const project = projects[id] || projects.talent;
-
-  document.title = project.title + " — Multiverso Studios";
-
-  detail.innerHTML = `
-    <a class="back" href="minecraft.html">
-      ← Todos los proyectos
-    </a>
-
-    <div class="detail-copy">
-      <p class="kicker">PROYECTO MULTIVERSO</p>
-      <h1>${project.title}</h1>
-      <p class="meta">${project.meta}</p>
-      <p>${project.text}</p>
-
-      <a class="btn primary" href="contacto.html">
-        Crear un proyecto con nosotros ↗
-      </a>
-    </div>
-  `;
-}
-
-/*
-  PERFILES DE COLABORADORES
-
-  Para editar un perfil cambia:
-  - name: nombre visible.
-  - role: rol o cargo.
-  - group: sección a la que pertenece.
-  - image: archivo dentro de la carpeta imagenes.
-  - bio: descripción completa.
-  - socials: pega solamente las redes activas. Si el enlace está vacío,
-    el icono no aparecerá en la página.
-*/
 const collaborators = {
   extrayp: {
     name: "ExtraYP",
-    role: "Colaborador creativo",
-    group: "Multiverso Studios",
-    image: "ExtraYP.png",
-    bio: "ExtraYP participo en casi todos los proyectos de Multiverso Studios, aportando ideas, diseño y creatividad. Actualmente es un miembro poco activo, pero sigue siendo parte del equipo y colaborando en algunos proyectos.",
-    socials: {
-      instagram: "https://www.instagram.com/soyextraa/",
-      x: "",
-      youtube: "https://www.youtube.com/@extrayp",
-    },
+    image: "imagenes/extrayp.png",
+    bio: "Ian Jesús, mejor conocido como ExtraYP, es un creador de contenido mexicano que desarrolló parte de su trayectoria en Twitch y, posteriormente, también en Kick. A lo largo de su actividad, participó en diferentes proyectos relacionados con videojuegos, entretenimiento y comunidades digitales.\n\nSu relación con Multiverso Studios comenzó desde sus primeras etapas, convirtiéndose en una de las personas involucradas en el desarrollo y organización de sus proyectos. El 25 de junio de 2023, participó como juez y organizador de Discord Talent, evento que marcó el inicio oficial del estudio.\n\nPosteriormente, colaboró en Nexus Cup III, celebrada el 10 de noviembre de 2025, donde contribuyó con ideas, reglas y diseño de los diferentes juegos. Su participación fue importante para el desarrollo de las dinámicas y la planificación de la competencia.\n\nActualmente, ExtraYP forma parte de Multiverso Studios, desempeñando un papel dentro de su equipo y colaborando en el desarrollo de nuevos proyectos.",
+    projects: ["nexus-cup-iii", "discord-talent"],
   },
-  coffee: {
-    name: "Coffee Sugar Boy",
-    role: "CEO of Darkness Animation and Co-CEO of Multiverso Studio.",
-    group: "Multiverso Studios",
-    image: "Coffeesugarboy.jpg",
-    bio: "Coffee Sugar Boy es una persona que a invertido, apoyado y colaborado tanto el como su equipo para la elaboracion de varios proyectos de Multiverso Studios. Es el CEO de Darkness Animation y Co-CEO de Multiverso Studio.",
-    socials: {
-      twitch: "https://www.twitch.tv/coffe_sugar_boy",
-    },
-  },
-  Christian: {
-    name: "Christian",
-    role: "CEO of Multiverso Studio.",
-    group: "Multiverso Studios",
-    image: "By2008.jpg",
-    bio: "Fundador y CEO de Multiverso Studios. Christian es un desarrollador y creador de contenido que ha liderado el estudio desde su inicio, aportando su visión y experiencia en la industria del entretenimiento digital.",
-    socials: {
-      instagram: "https://www.instagram.com/christian.by08",
-      x: "https://x.com/christian_by08",
-      youtube: "https://www.youtube.com/@Christian_by08",
-      kick: "https://kick.com/christianby08",
-      Whatsapp: "https://www.whatsapp.com/channel/0029VaPjTxL2phHGdO1hd62y",
-    },    
-  },
-  nikki: {
-    name: "Nikki",
-    role: "Actriz de doblaje, Moderadora y Betatester",
-    group: "Multiverso Studios",
-    image: "Nikki.jpg",
-    bio: "Nikki es una actriz de doblaje que ha prestado su voz para la franquisia de Multiversal Games. Tambien a sido moderadora y betatester de varios proyectos del estudio, aportando su experiencia y habilidades en la industria del entretenimiento digital.",
-    socials: {
-      instagram: "https://www.instagram.com/nnsoortk/",
-      x: "https://x.com/nikkiangg",
-      tiktok: "https://www.tiktok.com/@ang.nkl",
-    },
-  },
-  limunsimon: {
-    name: "LimunSimon",
-    role: "Betatester y moderador",
-    group: "Multiverso Studios",
-    image: "LimunSimon.jpg",
-    bio: "Simon es un betatester y moderador que ha participado en varios proyectos de Multiverso Studios, aportando su experiencia y habilidades en la industria del entretenimiento digital.",
-    socials: {
-      instagram: "https://www.instagram.com/syk0boyfrom_nowhere/",
-      x: "",
-      twitch: "",
-    },
-  },
-  calebmc: {
-    name: "CalebMC",
-    role: "Betatester",
-    group: "Multiverso Studios",
-    image: "CalebMC.jpg",
-    bio: "Caleb es un betatester que ha participado en varios proyectos de Multiverso Studios, aportando su experiencia y habilidades en la industria del entretenimiento digital.",
-    socials: {
-      instagram: "https://www.instagram.com/_andeeer_0/",
-      x: "",
-      youtube: "",
-    },
-  },
-  miku: {
-    name: "Miku",
-    role: "Builder",
-    group: "Darkness Animation",
-    image: "IncognitoH.png",
-    bio: "Miku es un builder que ha participado en varios proyectos de Multiverso Studios, es un hombre de pocas palabras pero con gran talento, aportando su experiencia y habilidades en la industria del entretenimiento digital.",
-    socials: {
-      instagram: "",
-      x: "",
-    },
-  },
-  faris: {
-    name: "Faris",
-    role: "Builder",
-    group: "Darkness Animation",
-    image: "IncognitoM.png",
-    bio: "Faris es un builder que ha participado en varios proyectos de Multiverso Studios, una mujer perfeccionista con lo que hace y con gran talento, aportando su experiencia y habilidades en la industria del entretenimiento digital.",
-    socials: {
-      instagram: "",
-      x: "",
-    },
-  },
-  barb: {
-    name: "Barb",
-    role: "Builder y moderadora",
-    group: "Darkness Animation",
-    image: "IncognitoM.png",
-    bio: "Barb es una builder y moderadora que ha participado en varios proyectos de Multiverso Studios, aportando su experiencia y habilidades en la industria del entretenimiento digital.",
-    socials: {
-      instagram: "",
-      x: "",
-    },
+  deluxe: {
+    name: "Deluxe Studios",
+    image: "imagenes/deluxe-studios.png",
+    bio: "Deluxe Studios es un estudio fundado por PixelBlit, quien anteriormente se desempeñaba como creador de contenido en Twitch. El estudio fue concebido originalmente para participar en proyectos específicos, colaborando en iniciativas relacionadas con videojuegos y entretenimiento digital.\n\nSu colaboración con Multiverso Studios tuvo lugar durante el desarrollo de Simon Dice, un evento comunitario inspirado en la dinámica del clásico juego del mismo nombre.\n\nSimon Dice fue una actividad organizada en colaboración con Deluxe Studios, donde los participantes debían prestar atención a las instrucciones, reaccionar rápidamente y superar diferentes pruebas para continuar en la competencia. A través de una mecánica sencilla, el evento buscó fomentar la concentración, la participación y la interacción entre los integrantes de la comunidad.\n\nEsta colaboración representó una oportunidad para que ambos proyectos trabajaran conjuntamente en una experiencia accesible y entretenida.",
+    projects: ["simon-dice"],
   },
   morrocoy: {
     name: "Morrocoy Studios",
-    role: "Desarrollo de juegos",
-    group: "Colaboraciones",
-    image: "MorrocoyStudios.png",
-    bio: "Estudio de desarrollo de juegos que ha colaborado con Multiverso Studios en Multiversal Games 5, aportando en diseño grafico e invitaciones para el evento.",
-    socials: {
-      instagram: "",
-      x: "",
-      website: "",
-    },
+    image: "imagenes/morrocoy-studios.png",
+    bio: "Morrocoy Studios es un estudio de desarrollo y diseño que ha colaborado con Multiverso Studios en distintas iniciativas. Aportó en diseño gráfico e invitaciones para eventos, sumando su estilo visual a las experiencias del universo Multiverso.\n\nSu participación ha reforzado la identidad visual de varios proyectos y ha permitido ampliar el alcance creativo del estudio.",
+    projects: [],
   },
-  PixelBlits: {
-    name: "PixelBlits",
-    role: "Colaborador",
-    group: "Colaboraciones",
-    image: "PixelBlits.png",
-    bio: "Ceo de Deluxe Studios (Estudio que ya no existe) y colaborador temporal de Multiverso Studios en un proyecto (Simon Dice), aportando en desarrollo de juegos.",
-    socials: {
-      instagram: "",
-      x: "",
-      website: "",
-    },
-  },
-  notleox: {
-    name: "NotLeox",
-    role: "Programación",
-    group: "Multiverso Studios",
-    image: "NotLeox.png",
-    bio: "Leo fue un programador de Multiverso Studios que colaboró en KSMP 2.",
-    socials: {
-      instagram: "",
-      x: "",
-      youtube: "",
-    },
+  darknes: {
+    name: "Darknes Animation",
+    image: "imagenes/darknes-animation.png",
+    bio: "Darknes Animation es un estudio creativo que se convirtió en uno de los partners más cercanos de Multiverso Studios. Su primera gran colaboración llegó con Nexus Cup II, donde aportaron en la producción y organización del evento.\n\nDesde entonces han mantenido una relación estrecha, participando en la evolución de las experiencias competitivas y de entretenimiento que el estudio ofrece a su comunidad.",
+    projects: ["nexus-cup-ii"],
   },
   reorline: {
     name: "Reorline",
-    role: "Diseño y colaboración",
-    group: "Colaboraciones",
-    image: "ReorLine.png",
-    bio: "Reorline fue Diseñador para Multiverso Studios para Multiversal Games, despues de un tiempo hizo una colaboaracion para un evento suyo y para su espectadores, creado asi Viernes Terrorífico, un evento original de Multiverso Studios.",
-    socials: {
-      instagram: "https://www.instagram.com/reorline/",
-      x: "https://x.com/reorline",
-      youtube: "https://www.youtube.com/@Reorline",
-      twitch: "https://www.twitch.tv/reorline",
-    },
-  },
-  marshall: {
-    name: "Marshall Panda",
-    role: "Programación",
-    group: "Colaboraciones",
-    image: "MarshallPanda.png",
-    bio: "Marshall Panda fue un programador que colaboró con Multiverso Studios mucho antes de su fundación. Fue desarrolador en la 1ra y 2da edicion de Multiversal Games.",
-    socials: {
-      instagram: "",
-      x: "",
-      github: "",
-    },
-  },
-  Error505: {
-    name: "Error505",
-    role: "Desconocido",
-    group: "Desconocido",
-    image: "logo.png",
-    bio: "Informacion Desconocida.",
-    socials: {
-      instagram: "",
-      x: "",
-      tiktok: "",
-    },
-  },
-  megan: {
-    name: "Megan",
-    role: "Actriz de doblaje",
-    group: "Multiverso Studios",
-    image: "IncognitoM.png",
-    bio: "Megan fue una actriz de doblaje para Multiverso Studios que colaboró en Hard Craft y en Multiversal Games.",
-    socials: {
-      instagram: "",
-      x: "",
-      tiktok: "",
-    },
+    image: "imagenes/reorline.png",
+    bio: "Reorline colaboró con Multiverso Studios como diseñador y creador. Después de un tiempo de trabajo conjunto, impulsó la creación de Viernes Terrorífico, un evento original del estudio orientado a experiencias de terror y misterio.\n\nSu visión creativa ayudó a dar forma a una de las propuestas temáticas más distintivas del catálogo de Multiverso Studios.",
+    projects: ["viernes-terrorifico"],
   },
 };
 
-const collaboratorDetail = document.querySelector("#collaborator-detail");
+/* ---------- Cambio de vista (misma página) + historial ---------- */
+function showView(viewId, push) {
+  document.querySelectorAll(".view").forEach((v) => v.classList.remove("active"));
+  const target = document.getElementById(viewId);
+  if (target) {
+    target.classList.add("active");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  if (push) {
+    const url = viewId.includes("detail")
+      ? location.pathname + location.search + "#" + viewId
+      : location.pathname;
+    history.pushState({ view: viewId }, "", url);
+  }
+}
 
-if (collaboratorDetail) {
-  const collaboratorId =
-    new URLSearchParams(location.search).get("id") || "extrayp";
-  const collaborator = collaborators[collaboratorId] || collaborators.extrayp;
-
-  const socialNames = {
-    instagram: "Instagram",
-    x: "X",
-    youtube: "YouTube",
-    twitch: "Twitch",
-    tiktok: "TikTok",
-    discord: "Discord",
-    github: "GitHub",
-    website: "Sitio web",
-  };
-
-  const socialIcons = {
-    instagram: "📸",
-    x: "𝕏",
-    youtube: "▶",
-    twitch: "🎮",
-    tiktok: "♪",
-    discord: "DC",
-    github: "⌘",
-    website: "↗",
-    kick: "K",
-    Whatsapp: "WP",
-  };
-
-  const activeSocials = Object.entries(collaborator.socials)
-    .filter(([, url]) => url && url.trim() !== "")
-    .map(
-      ([network, url]) => `
-        <a
-          class="profile-social"
-          href="${url}"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="${socialNames[network] || network}"
-          title="${socialNames[network] || network}"
-        >
-          ${socialIcons[network] || "↗"}
-        </a>
-      `,
-    )
-    .join("");
-
-  document.title = collaborator.name + " — Multiverso Studios";
-
-  collaboratorDetail.innerHTML = `
-    <a class="back collaborator-back" href="colaboraciones.html">
-      ← Todos los colaboradores
-    </a>
-
-    <div class="profile-layout">
-      <div class="profile-media">
-        <img
-          src="imagenes/${collaborator.image}"
-          alt="${collaborator.name}"
-        />
-
-        <div class="profile-socials">
-          ${activeSocials}
+function openProject(id) {
+  const p = projects[id];
+  if (!p) return;
+  const container = document.getElementById("project-detail-content");
+  if (!container) return;
+  container.innerHTML = `
+    <div class="detail-wrap">
+      <a class="back" href="minecraft.html">← Todos los proyectos</a>
+      <div class="detail-layout">
+        <div class="detail-image"><img src="${p.image}" alt="${p.title}"></div>
+        <div class="detail-copy">
+          <h1>${p.title}</h1>
+          <p class="meta">${p.meta}</p>
+          <p>${p.text}</p>
+          <a class="btn primary" href="contacto.html">Contactar al estudio →</a>
         </div>
       </div>
-
-      <div class="profile-copy">
-        <p class="kicker">${collaborator.group}</p>
-        <h1>${collaborator.name}</h1>
-        <p class="profile-role">${collaborator.role}</p>
-        <p class="profile-bio">${collaborator.bio}</p>
-      </div>
-    </div>
-  `;
+    </div>`;
+  showView("project-detail", true);
 }
+
+function openCollaborator(id) {
+  const c = collaborators[id];
+  if (!c) return;
+  const container = document.getElementById("collab-detail-content");
+  if (!container) return;
+
+  let projectsHTML = "";
+  if (c.projects && c.projects.length) {
+    projectsHTML =
+      '<h2 class="detail-sub">Proyectos</h2><div class="card-grid detail-projects">' +
+      c.projects
+        .map((pid) => {
+          const p = projects[pid];
+          if (!p) return "";
+          return `<a class="media-card" href="minecraft.html#${pid}">
+            <img src="${p.image}" alt="${p.title}">
+            <div class="card-body"><h3>${p.title}</h3><p>${p.meta}</p></div>
+          </a>`;
+        })
+        .join("") +
+      "</div>";
+  }
+
+  container.innerHTML = `
+    <div class="collab-banner">
+      <img class="avatar" src="${c.image}" alt="${c.name}">
+      <div class="name-big">${c.name}</div>
+    </div>
+    <div class="detail-wrap">
+      <a class="back" href="colaboradores.html">← Todos los colaboradores</a>
+      <h1 class="collab-title">${c.name}</h1>
+      <div class="collab-bio">${c.bio.replace(/\n/g, "<br>")}</div>
+      ${projectsHTML}
+    </div>`;
+  showView("collab-detail", true);
+}
+
+/* ---------- Al cargar: abrir detalle si hay hash o session ---------- */
+document.addEventListener("DOMContentLoaded", () => {
+  // Proyectos
+  if (document.getElementById("project-detail")) {
+    const hash = location.hash.replace("#", "");
+    if (hash && projects[hash]) {
+      openProject(hash);
+    } else if (hash === "project-detail") {
+      // ya abierto por historial
+    }
+  }
+  // Colaboradores
+  if (document.getElementById("collab-detail")) {
+    const hash = location.hash.replace("#", "");
+    if (hash && collaborators[hash]) {
+      openCollaborator(hash);
+    }
+  }
+});
+
+/* Botón atrás del navegador */
+window.addEventListener("popstate", (e) => {
+  if (e.state && e.state.view) {
+    showView(e.state.view, false);
+  } else {
+    // Volver a la grilla de la página actual
+    if (document.getElementById("projects-grid")) showView("projects-grid", false);
+    if (document.getElementById("collab-grid")) showView("collab-grid", false);
+  }
+});

@@ -1,117 +1,94 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="imagenes/favicon.png" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Minecraft — Multiverso Studios</title>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div id="header"></div>
-    <main>
-      <section class="page-hero reveal">
-        <p class="kicker">NUESTRAS CREACIONES</p>
-        <h1 class="title">Proyectos de <em>Minecraft.</em></h1>
-        <p>
-          Eventos competitivos, series de supervivencia y experiencias
-          especiales para comunidades. Selecciona un proyecto para conocer su
-          historia.
-        </p>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Minecraft — Multiverso Studios</title>
+  <link rel="icon" type="image/png" href="imagenes/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="header"></div>
+
+  <main>
+    <!-- GRID VIEW -->
+    <div id="projects-grid" class="view active">
+      <section class="page-hero">
+        <h1 class="reveal">Nuestros <span class="gradient-text">Proyectos.</span></h1>
+        <p class="reveal">Eventos competitivos, series de supervivencia y experiencias especiales para comunidades. Selecciona un proyecto para conocer su historia.</p>
       </section>
-      <section class="project-catalog">
-        <a class="media-card reveal" href="proyecto.html?id=talent"
-          ><img src="imagenes/DcTalent.jpg" alt="" />
-          <div>
-            <h3>Discord Talent</h3>
-            <p>Junio 2023</p>
-          </div></a
-        ><a class="media-card reveal" href="proyecto.html?id=ksmp1"
-          ><img src="imagenes/ksmp.png" alt="" />
-          <div>
-            <h3>KSMP</h3>
-            <p>Julio 2023</p>
-          </div></a
-        ><a class="media-card reveal" href="proyecto.html?id=dedsafio"
-          ><img src="imagenes/Dextremo.png" alt="" />
-          <div>
-            <h3>Dedsafio Extremo</h3>
-            <p>2024</p>
-          </div></a
-        ><a class="media-card reveal" href="proyecto.html?id=multiversal1"
-          ><img src="imagenes/SquidGame.jpg" alt="" />
-          <div>
-            <h3>Squid Game</h3>
-            <p>2021</p>
-          </div></a
-        ><a class="media-card reveal" href="proyecto.html?id=multiversal2"
-          ><img src="imagenes/SquidCraft2.png" alt="" />
-          <div>
-            <h3>Squid Craft 2</h3>
-            <p>Agosto 2023</p>
-          </div></a
-        ><a class="media-card reveal" href="proyecto.html?id=multiversal3"
-          ><img src="imagenes/SquidMCgames3.png" alt="" />
-          <div>
-            <h3>Squid MC Games 3</h3>
-            <p>Noviembre 2023</p>
-          </div></a
-        ><a class="media-card reveal" href="proyecto.html?id=multiversal4"
-          ><img src="imagenes/SquidMC4.png" alt="" />
-          <div>
-            <h3>Squid MC Games 4</h3>
-            <p>2024</p>
-          </div></a
-        ><a class="media-card reveal" href="proyecto.html?id=multiversal5"
-          ><img src="imagenes/MultiversalGames5.png" alt="" />
-          <div>
-            <h3>Multiversal Games 5</h3>
-            <p>Octubre 2025</p>
-          </div></a
-        ><a class="media-card reveal" href="proyecto.html?id=extremo3"
-          ><img src="imagenes/Extremo3Recreacion.png" alt="" />
-          <div>
-            <h3>Extremo 3</h3>
-            <p>Julio 2026</p>
-          </div></a
-        ><a class="media-card reveal" href="proyecto.html?id=ksmp2"
-          ><img src="imagenes/KSMP2.png" alt="" />
-          <div>
-            <h3>KSMP 2</h3>
-            <p>2024</p>
-          </div></a
-        ><a class="media-card reveal" href="proyecto.html?id=terror"
-          ><img src="imagenes/ViernesDeTerror.png" alt="" />
-          <div>
-            <h3>Viernes Terrorífico</h3>
-            <p>Agosto 2026</p>
-          </div></a
-        ><a class="media-card reveal" href="proyecto.html?id=simonDice"
-          ><img src="imagenes/SimonDice.png" alt="" />
-          <div>
-            <h3>Simon Dice</h3>
-            <p>2024</p>
-          </div></a
-        ><a class="media-card reveal" href="proyecto.html?id=hardCraft"
-          ><img src="imagenes/HardCraft.png" alt="" />
-          <div>
-            <h3>Hard Craft</h3>
-            <p>Abril 2024</p>
-          </div></a
-        ><a class="media-card reveal" href="proyecto.html?id=backrooms"
-          ><img src="imagenes/backrooms_logo.png" alt="" />
-          <div>
-            <h3>The backrooms Recreation</h3>
-            <p>Septiembre 2026</p>
-          </div></a          
-        >
+
+      <section class="section" style="padding-top:0.5rem">
+        <div class="card-grid">
+          <article class="media-card reveal" onclick="openProject('nexus-cup-iii')">
+            <img src="imagenes/nexus-cup-iii.png" alt="Nexus Cup III" />
+            <div class="card-body">
+              <h3>Nexus Cup III</h3>
+              <p>10 nov 2025</p>
+            </div>
+          </article>
+          <article class="media-card reveal" onclick="openProject('nexus-cup-ii')">
+            <img src="imagenes/nexus-cup-ii.png" alt="Nexus Cup II" />
+            <div class="card-body">
+              <h3>Nexus Cup II</h3>
+              <p>12 Agosto 2024</p>
+            </div>
+          </article>
+          <article class="media-card reveal" onclick="openProject('nexus-cup-i')">
+            <img src="imagenes/nexus-cup-i.png" alt="Nexus Cup I" />
+            <div class="card-body">
+              <h3>Nexus Cup I</h3>
+              <p>25 Abril 2022</p>
+            </div>
+          </article>
+          <article class="media-card reveal" onclick="openProject('deadland')">
+            <img src="imagenes/deadland.png" alt="Deadland" />
+            <div class="card-body">
+              <h3>Deadland</h3>
+              <p>23 Julio 2026</p>
+            </div>
+          </article>
+          <article class="media-card reveal" onclick="openProject('viernes-terrorifico')">
+            <img src="imagenes/viernes-terrorifico.png" alt="Viernes Terrorífico" />
+            <div class="card-body">
+              <h3>Viernes Terrorífico</h3>
+              <p>21 Agosto 2026</p>
+            </div>
+          </article>
+          <article class="media-card reveal" onclick="openProject('simon-dice')">
+            <img src="imagenes/simon-dice.png" alt="Simon Dice" />
+            <div class="card-body">
+              <h3>Simon Dice</h3>
+              <p>07 Marzo 2024</p>
+            </div>
+          </article>
+          <article class="media-card reveal" onclick="openProject('backrooms')">
+            <img src="imagenes/backrooms.png" alt="The Backrooms Recreation" />
+            <div class="card-body">
+              <h3>The Backrooms Recreation</h3>
+              <p>14 Septiembre 2026</p>
+            </div>
+          </article>
+          <article class="media-card reveal" onclick="openProject('discord-talent')">
+            <img src="imagenes/discord-talent.jpg" alt="Discord Talent" />
+            <div class="card-body">
+              <h3>Discord Talent</h3>
+              <p>25 Junio 2023</p>
+            </div>
+          </article>
+        </div>
       </section>
-    </main>
-    <div id="footer"></div>
-    <script src="script.js"></script>
-  </body>
+    </div>
+
+    <!-- DETAIL VIEW -->
+    <div id="project-detail" class="view">
+      <div id="project-detail-content"></div>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+  <script src="script.js"></script>
+</body>
 </html>
