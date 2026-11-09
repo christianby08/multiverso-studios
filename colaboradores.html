@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Colaboradores — Multiverso Studios</title>
+  <link rel="icon" type="image/png" href="imagenes/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="header"></div>
+
+  <main>
+    <!-- GRID VIEW -->
+    <div id="collab-grid" class="view active">
+      <section class="page-hero">
+        <h1 class="reveal">Nuestros <span class="gradient-text">Colaboradores.</span></h1>
+      </section>
+
+      <section class="section" style="padding-top:0.5rem">
+        <div class="card-grid">
+          <article class="media-card reveal" onclick="openCollaborator('extrayp')">
+            <img src="imagenes/extrayp.png" alt="ExtraYP" />
+            <div class="card-body"><h3>ExtraYP</h3></div>
+          </article>
+          <article class="media-card reveal" onclick="openCollaborator('deluxe')">
+            <img src="imagenes/deluxe-studios.png" alt="Deluxe Studios" />
+            <div class="card-body"><h3>Deluxe Studios</h3></div>
+          </article>
+          <article class="media-card reveal" onclick="openCollaborator('morrocoy')">
+            <img src="imagenes/morrocoy-studios.png" alt="Morrocoy Studios" />
+            <div class="card-body"><h3>Morrocoy Studios</h3></div>
+          </article>
+          <article class="media-card reveal" onclick="openCollaborator('darknes')">
+            <img src="imagenes/darknes-animation.png" alt="Darknes Animation" />
+            <div class="card-body"><h3>Darknes Animation</h3></div>
+          </article>
+          <article class="media-card reveal" onclick="openCollaborator('reorline')">
+            <img src="imagenes/reorline.png" alt="Reorline" />
+            <div class="card-body"><h3>Reorline</h3></div>
+          </article>
+          <a class="media-card reveal" href="contacto.html">
+            <div class="card-cta">Tú puedes<br>ser el siguiente</div>
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <!-- DETAIL VIEW -->
+    <div id="collab-detail" class="view">
+      <div id="collab-detail-content"></div>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+  <script src="script.js"></script>
+</body>
+</html>
